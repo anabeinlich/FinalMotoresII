@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4718573778766228490}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,6 +43,10 @@ PrefabInstance:
     - target: {fileID: 3704879963781141688, guid: 63b1e685c851233419639c4877a0b2db, type: 3}
       propertyPath: m_Name
       value: visual player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704879963781141688, guid: 63b1e685c851233419639c4877a0b2db, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4044707584225267202, guid: 63b1e685c851233419639c4877a0b2db, type: 3}
       propertyPath: m_LocalPosition.x
@@ -105,6 +109,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3704879963781141688, guid: 63b1e685c851233419639c4877a0b2db, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8315008669498876471}
+    - targetCorrespondingSourceObject: {fileID: 3704879963781141688, guid: 63b1e685c851233419639c4877a0b2db, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2937985228132337299}
   m_SourcePrefab: {fileID: 100100000, guid: 63b1e685c851233419639c4877a0b2db, type: 3}
 --- !u!1 &6077073917167094821 stripped
 GameObject:
@@ -193,6 +200,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0aa1e841-a8be-44a5-a6a5-53ea435724f1
     m_ActionName: 'Gameplay/Saltar[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ae544ed5-4cb4-4dd9-b2ef-1ff9c14b4dfc
+    m_ActionName: 'Gameplay/Agachar[/Keyboard/s]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -218,7 +229,21 @@ MonoBehaviour:
   centroNormal: {x: 0, y: 0.83, z: 0}
   centroAgachado: {x: 0, y: 0.415, z: 0}
   duracionAgachado: 1
-  velocidadCaidaRapida: -10
+  velocidadCaidaRapida: -13
+--- !u!114 &2937985228132337299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6077073917167094821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f362dbeb120a642b3bb2252492e7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaMaxima: 100
+  barraVidaUI: {fileID: 0}
 --- !u!4 &6853856494769215135 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4044707584225267202, guid: 63b1e685c851233419639c4877a0b2db, type: 3}
