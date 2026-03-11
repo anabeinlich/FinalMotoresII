@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7335440841186537708
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 214355132373845315}
+  - component: {fileID: 8134868524053893810}
+  m_Layer: 0
+  m_Name: RandomSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &214355132373845315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7335440841186537708}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8134868524053893810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7335440841186537708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e4bc2d9483b70e4eb0b84cbf217b6d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsPosibles:
+  - {fileID: 2740078710012916408, guid: 512909280c18a1f4397162e9d6b1e7c4, type: 3}
+  - {fileID: 978904160740185199, guid: a72fca3bd31089c499def18d10b01df7, type: 3}
+  - {fileID: 5883560435595058486, guid: da79bff40b3800c46b703f6b6aeea5d9, type: 3}
+  - {fileID: 8097621875772767245, guid: edf3fb36a5f87c44884a70556a517506, type: 3}
+  - {fileID: 8097621875772767245, guid: edf3fb36a5f87c44884a70556a517506, type: 3}
+  - {fileID: 8097621875772767245, guid: edf3fb36a5f87c44884a70556a517506, type: 3}
+  - {fileID: 8097621875772767245, guid: edf3fb36a5f87c44884a70556a517506, type: 3}
+  probabilidadDeAparicion: 100
