@@ -12,15 +12,23 @@ public class PlayerMove : MonoBehaviour
     public float fuerzaSalto = 2f;
     public float gravedad = -9.81f;
 
+    [Header("Configuración de Agacharse")]
+    public float alturaNormal = 1.71f;
+    public float alturaAgachado = 0.85f; 
+    public Vector3 centroNormal = new Vector3(0, 0.83f, 0);
+    public Vector3 centroAgachado = new Vector3(0, 0.415f, 0);
+
     private CharacterController controller;
     private Animator animator;
     private Vector3 velocidadVertical;
     private float movimientoX;
     private bool enElSuelo;
     private bool puedeDobleSalto;
+    private bool estaAgachado = false;
 
     private readonly int hashEnSuelo = Animator.StringToHash("EnSuelo");
     private readonly int hashCorriendo = Animator.StringToHash("Corriendo");
+    private readonly int hashAgachado = Animator.StringToHash("Agachado");
 
     void Start()
     {
@@ -65,6 +73,8 @@ public class PlayerMove : MonoBehaviour
     {
         if (!GameManager.Instancia.juegoIniciado) return;
 
+        if (estaAgachado) return;
+
         if (contexto.performed)
         {
             if (enElSuelo)
@@ -78,6 +88,27 @@ public class PlayerMove : MonoBehaviour
                 puedeDobleSalto = false;
                 animator.Play("Jumping", 0, 0f);
             }
+        }
+    }
+
+    public void AlAgachar(InputAction.CallbackContext contexto)
+    {
+        if (!GameManager.Instancia.juegoIniciado) return;
+
+        if (contexto.performed && enElSuelo)
+        {
+            estaAgachado = true;
+            animator.SetBool(hashAgachado, true);
+            controller.height = alturaAgachado;
+            controller.center = centroAgachado;
+        }
+      
+        else if (contexto.canceled)
+        {
+            estaAgachado = false;
+            animator.SetBool(hashAgachado, false);
+            controller.height = alturaNormal;
+            controller.center = centroNormal;
         }
     }
 }

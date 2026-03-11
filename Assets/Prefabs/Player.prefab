@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4718573778766228490}
-  - component: {fileID: 8473174642524083328}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -33,31 +32,6 @@ Transform:
   - {fileID: 6853856494769215135}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!143 &8473174642524083328
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5779685470825749400}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Height: 1.71
-  m_Radius: 0.22
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.83, z: 0}
 --- !u!1001 &7438955052731619485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -239,6 +213,10 @@ MonoBehaviour:
   velocidadLateral: 7
   fuerzaSalto: 2
   gravedad: -9.81
+  alturaNormal: 1.71
+  alturaAgachado: 0.85
+  centroNormal: {x: 0, y: 0.83, z: 0}
+  centroAgachado: {x: 0, y: 0.415, z: 0}
 --- !u!4 &6853856494769215135 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4044707584225267202, guid: 63b1e685c851233419639c4877a0b2db, type: 3}
