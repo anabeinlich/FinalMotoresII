@@ -214,9 +214,11 @@ MonoBehaviour:
   fuerzaSalto: 2
   gravedad: -9.81
   alturaNormal: 1.71
-  alturaAgachado: 0.85
+  alturaAgachado: 1
   centroNormal: {x: 0, y: 0.83, z: 0}
   centroAgachado: {x: 0, y: 0.415, z: 0}
+  duracionAgachado: 1
+  velocidadCaidaRapida: -10
 --- !u!4 &6853856494769215135 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4044707584225267202, guid: 63b1e685c851233419639c4877a0b2db, type: 3}

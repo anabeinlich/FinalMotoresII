@@ -64,7 +64,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cubo obstaculo
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4748361991329772099, guid: 606715d7fe5d94e49806958771645b4d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

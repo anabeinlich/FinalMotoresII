@@ -17,6 +17,8 @@ public class PlayerMove : MonoBehaviour
     public float alturaAgachado = 0.85f; 
     public Vector3 centroNormal = new Vector3(0, 0.83f, 0);
     public Vector3 centroAgachado = new Vector3(0, 0.415f, 0);
+    public float duracionAgachado = 1.5f;
+    public float velocidadCaidaRapida = -15f;
 
     private CharacterController controller;
     private Animator animator;
@@ -24,7 +26,9 @@ public class PlayerMove : MonoBehaviour
     private float movimientoX;
     private bool enElSuelo;
     private bool puedeDobleSalto;
+
     private bool estaAgachado = false;
+    private float temporizadorAgachado = 0f;
 
     private readonly int hashEnSuelo = Animator.StringToHash("EnSuelo");
     private readonly int hashCorriendo = Animator.StringToHash("Corriendo");
@@ -45,6 +49,16 @@ public class PlayerMove : MonoBehaviour
         {
             velocidadVertical.y = -2f;
             puedeDobleSalto = false;
+        }
+
+        if (estaAgachado)
+        {
+            temporizadorAgachado -= Time.deltaTime;
+
+            if (temporizadorAgachado <= 0f)
+            {
+                Levantarse();
+            }
         }
 
         velocidadVertical.y += gravedad * Time.deltaTime;
@@ -95,20 +109,36 @@ public class PlayerMove : MonoBehaviour
     {
         if (!GameManager.Instancia.juegoIniciado) return;
 
-        if (contexto.performed && enElSuelo)
+        if (contexto.performed)
         {
-            estaAgachado = true;
-            animator.SetBool(hashAgachado, true);
-            controller.height = alturaAgachado;
-            controller.center = centroAgachado;
+            if (enElSuelo && !estaAgachado)
+            {
+                Agacharse();
+            }
+
+            else if (!enElSuelo)
+            {
+                velocidadVertical.y = velocidadCaidaRapida;
+            }
         }
-      
-        else if (contexto.canceled)
-        {
-            estaAgachado = false;
-            animator.SetBool(hashAgachado, false);
-            controller.height = alturaNormal;
-            controller.center = centroNormal;
-        }
+    }
+
+    private void Agacharse()
+    {
+        estaAgachado = true;
+        temporizadorAgachado = duracionAgachado;
+
+        animator.SetBool(hashAgachado, true);
+        controller.height = alturaAgachado;
+        controller.center = centroAgachado;
+    }
+
+    private void Levantarse()
+    {
+        estaAgachado = false;
+
+        animator.SetBool(hashAgachado, false);
+        controller.height = alturaNormal;
+        controller.center = centroNormal;
     }
 }
