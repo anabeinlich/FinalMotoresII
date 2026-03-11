@@ -10,6 +10,9 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("Interfaz (UI)")]
     public Image barraVidaUI;
+    public GameObject panelGameOver;
+
+    public float tiempoRetrasoGameOver = 1.5f;
 
     private Animator animator;
     private readonly int hashMuerto = Animator.StringToHash("Muerto");
@@ -53,6 +56,17 @@ public class PlayerHealth : MonoBehaviour
         }
 
         animator.SetTrigger(hashMuerto);
+
+        Invoke(nameof(MostrarPanelGameOver), tiempoRetrasoGameOver);
+
         Debug.Log("THYRA muurio");
+    }
+
+    private void MostrarPanelGameOver()
+    {
+        if (panelGameOver != null)
+        {
+            panelGameOver.SetActive(true);
+        }
     }
 }
