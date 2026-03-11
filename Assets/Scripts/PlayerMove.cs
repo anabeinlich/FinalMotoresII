@@ -141,4 +141,24 @@ public class PlayerMove : MonoBehaviour
         controller.height = alturaNormal;
         controller.center = centroNormal;
     }
+
+    private void OnControllerColliderHit(ControllerColliderHit choque)
+    {
+        Obstaculo obstaculo = choque.gameObject.GetComponent<Obstaculo>();
+
+        if (obstaculo != null && obstaculo.tipo == Obstaculo.TipoObstaculo.Solido)
+        {
+
+            if (choque.normal.y < 0.5f)
+            {
+                PlayerHealth vida = GetComponent<PlayerHealth>();
+
+                if (vida != null)
+                {
+                    vida.RecibirDano(vida.vidaMaxima);
+                }
+            }
+        }
+
+    }
 }

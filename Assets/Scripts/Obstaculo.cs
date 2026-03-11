@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Obstaculo : MonoBehaviour
 {
-    public enum TipoObstaculo { Transparente, Solido, Robot }
+    public enum TipoObstaculo { Transparente, Solido, Robot, ChoqueFrontal }
 
     [Header("Configuración")]
     public TipoObstaculo tipo;
@@ -34,6 +34,10 @@ public class Obstaculo : MonoBehaviour
                     }
 
                     Destroy(gameObject);
+                }
+                else if (tipo == TipoObstaculo.ChoqueFrontal)
+                {
+                    vidaJugador.RecibirDano(vidaJugador.vidaMaxima);
                 }
             }
         }

@@ -33,7 +33,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MatCap:
-        m_Texture: {fileID: 2800000, guid: 65282ed7102afc4489337b34cbf9bbd9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 66c5a6eef50c4524ca969773d4903be4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
