@@ -43,11 +43,11 @@ public class PlayerHealth : MonoBehaviour
         if (visualEscudo != null) visualEscudo.SetActive(true);
     }
 
-    public void RecibirDano(float cantidad)
+    public void RecibirDano(float cantidad, bool ignoraEscudo = false)
     {
         if (GameManager.Instancia != null && !GameManager.Instancia.juegoIniciado) return;
 
-        if (escudoActivo)
+        if (escudoActivo && !ignoraEscudo)
         {
             escudoActivo = false;
             if (visualEscudo != null) visualEscudo.SetActive(false);
@@ -95,4 +95,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider otro)
+    {
+        if (otro.CompareTag("Kill"))
+        {
+            RecibirDano(vidaMaxima, true);
+        }
+    }
 }
