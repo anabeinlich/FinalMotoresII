@@ -8,6 +8,10 @@ public class PlayerHealth : MonoBehaviour
     public float vidaMaxima = 100f;
     private float vidaActual;
 
+    [Header("Escudo")]
+    public bool escudoActivo = false;
+    public GameObject visualEscudo;
+
     [Header("Interfaz (UI)")]
     public Image barraVidaUI;
     public GameObject panelGameOver;
@@ -24,12 +28,33 @@ public class PlayerHealth : MonoBehaviour
         ActualizarUI();
     }
 
+    public void Curar(float cantidad)
+    {
+        if (GameManager.Instancia != null && !GameManager.Instancia.juegoIniciado) return;
+
+        vidaActual += cantidad;
+        if (vidaActual > vidaMaxima) vidaActual = vidaMaxima;
+        ActualizarUI();
+    }
+
+    public void ActivarEscudoVisual()
+    {
+        escudoActivo = true;
+        if (visualEscudo != null) visualEscudo.SetActive(true);
+    }
+
     public void RecibirDano(float cantidad)
     {
         if (GameManager.Instancia != null && !GameManager.Instancia.juegoIniciado) return;
 
-        vidaActual -= cantidad;
+        if (escudoActivo)
+        {
+            escudoActivo = false;
+            if (visualEscudo != null) visualEscudo.SetActive(false);
+            return;
+        }
 
+        vidaActual -= cantidad;
         if (vidaActual < 0) vidaActual = 0;
 
         ActualizarUI();
@@ -53,10 +78,10 @@ public class PlayerHealth : MonoBehaviour
         if (GameManager.Instancia != null)
         {
             GameManager.Instancia.juegoIniciado = false;
+            GameManager.Instancia.MostrarEstadisticasFinales();
         }
 
         animator.SetTrigger(hashMuerto);
-
         Invoke(nameof(MostrarPanelGameOver), tiempoRetrasoGameOver);
 
         Debug.Log("THYRA muurio");
